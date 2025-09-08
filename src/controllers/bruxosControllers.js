@@ -9,5 +9,19 @@ const getAllBruxos = (req, res) => {
     data: resultado,
   });
 };
+ 
+const getById = (req, res) => {
+    const id = parseInt(req.params.id)
+    const bruxo = bruxos.find(b => b.id === id);
 
-export { getAllBruxos };
+    if (bruxo) {
+        res.status(200).json(bruxo);
+    } else {
+        res.status(404).json({
+            mensagem: "Este bruxo não existe"}
+        )
+    }
+}
+
+
+export { getAllBruxos, getById };
