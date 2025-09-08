@@ -10,4 +10,17 @@ const getAllPocoes = (req, res) => {
   });
 };
 
-export { getAllPocoes };
+const getById = (req, res) => {
+  const id = parseInt(req.params.id)
+  const pocao = pocoes.find(b => b.id === id);
+
+  if (pocao) {
+      res.status(200).json(pocao);
+  } else {
+      res.status(404).json({
+          mensagem: "Este animal não existe"}
+      )
+  }
+}
+
+export { getAllPocoes, getById };
