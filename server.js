@@ -2,6 +2,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import bruxosRoutes from "./src/routes/bruxosRoutes.js";
+import animaisRoutes from "./src/routes/animaisRoutes.js";
 
 // Criar aplicação com Express e configurar para aceitar JSON
 const app = express();
@@ -17,6 +18,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/bruxos", bruxosRoutes);
+app.use("/animais", animaisRoutes);
 
 app.listen(serverPort, () => {
   console.log(`🚀 Servidor rodando em http://localhost:${serverPort} 🚀`);
